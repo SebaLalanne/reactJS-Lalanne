@@ -11,6 +11,12 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Events from './components/Events';
 import Intercambiabilidad from './components/Intercambiabilidad';
+import DarkProductList from './components/DarkProductList';
+import Condionales from './components/Condicionales';
+import { CacheProvider } from './contexts/CacheContext';
+import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext';
+import { useState } from 'react';
+import Favoritos from './components/Favoritos';
 
 
 //function App() {
@@ -29,18 +35,26 @@ import Intercambiabilidad from './components/Intercambiabilidad';
 // }
  
 function App() {
+
   return(
  <BrowserRouter>
+     <CacheProvider>
   <NavBar />
    {/* <Events /> */}
-   <Intercambiabilidad />
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
-        </Routes>
+   {/*<Intercambiabilidad />*/}
+   {/*} <Condionales />*/}
+   {/*<DarkProductList />*/}
+        <FavoritosProvider>
+           <Routes>
+             <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
+             <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
+             <Route path='/item/:id' element={<ItemDetailContainer />} />
+             <Route path='/cart' element={<Cart />} />
+             <Route path='/checkout' element={<Checkout />} />
+             <Route path='/favs' element={<Favoritos />} />
+           </Routes>
+        </FavoritosProvider>
+       </CacheProvider>
  </BrowserRouter>
   );
 }
