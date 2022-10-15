@@ -15,8 +15,9 @@ import DarkProductList from './components/DarkProductList';
 import Condionales from './components/Condicionales';
 import { CacheProvider } from './contexts/CacheContext';
 import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Favoritos from './components/Favoritos';
+import {doc, getFirestore, getDoc} from 'firebase/firestore'
 
 
 //function App() {
@@ -35,6 +36,25 @@ import Favoritos from './components/Favoritos';
 // }
  
 function App() {
+
+  useEffect (() => {
+    const database = getFirestore ();
+
+    const itemReference = doc (database, 'Items', 'QDt8XA0lTRIXvSS0vYxo');
+
+    getDoc(itemReference)
+     .then((snapshot) => {
+      if(snapshot.exists()) {
+        const item ={
+          id: snapshot.id,
+          ...snapshot.data()
+        };
+        console.log(item);
+      }
+     })
+     .catch(error => console.warn(error))
+
+  }, []);
 
   return(
  <BrowserRouter>
