@@ -9,6 +9,8 @@ import MapComponent from './components/MapComponent';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import Events from './components/Events';
+import Intercambiabilidad from './components/Intercambiabilidad';
 
 
 //function App() {
@@ -30,6 +32,8 @@ function App() {
   return(
  <BrowserRouter>
   <NavBar />
+   {/* <Events /> */}
+   <Intercambiabilidad />
         <Routes>
           <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
           <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a tienda de mascotas'} />} />
