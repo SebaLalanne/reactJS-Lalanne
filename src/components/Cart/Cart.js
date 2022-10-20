@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { Button, Container, Table } from "react-bootstrap";
-import CartContext from "../contexts/CartContext";
+import CartContext from "../../contexts/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
 import './Cart.css';
 import { Link } from "react-router-dom";
-import OrderModal from "./OrderModal/OrderModal";
-import { createOrder } from "../utils/Orders";
+import OrderModal from "../OrderModal/OrderModal";
+import { createOrder } from "../../utils/Orders";
 
 const buyerMock = {
   name: 'coderhouse',

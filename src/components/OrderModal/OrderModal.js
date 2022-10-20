@@ -15,6 +15,10 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId}) => {
           <Form.Control type="email" placeholder="Ingrese email" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Ingrese email" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Nombre</Form.Label>
           <Form.Control type="text" placeholder="Ingrese nombre" />
         </Form.Group>
